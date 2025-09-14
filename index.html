@@ -580,10 +580,28 @@
             transform: translateY(-3px);
         }
 
+        /* Desktop/Mobile text visibility */
+        .mobile-text {
+            display: none;
+        }
+
+        .desktop-text {
+            display: inline;
+        }
+
         /* Mobile Responsive Design */
         @media (max-width: 768px) {
             body {
                 scroll-padding-top: 100px;
+                overflow-x: hidden;
+            }
+
+            .mobile-text {
+                display: inline;
+            }
+
+            .desktop-text {
+                display: none;
             }
 
             .navbar {
@@ -605,6 +623,9 @@
             .main-container {
                 padding: 1.5rem 4%;
                 margin-top: 90px;
+                overflow-x: hidden;
+                width: 100%;
+                max-width: 100%;
             }
             
             .section-title {
@@ -620,6 +641,8 @@
             .product-card {
                 margin-bottom: 1rem;
                 box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                width: 100%;
+                max-width: 100%;
             }
 
             .product-image {
@@ -648,6 +671,9 @@
             .cart-section {
                 padding: 1.5rem;
                 border-radius: 15px;
+                overflow-x: hidden;
+                width: 100%;
+                max-width: 100%;
             }
 
             .cart-header {
@@ -689,8 +715,12 @@
             }
 
             .order-form {
-                padding: 1.5rem;
+                padding: 1.2rem;
                 border-radius: 15px;
+                overflow-x: hidden;
+                width: 100%;
+                max-width: 100%;
+                margin-bottom: 3rem;
             }
 
             .form-title {
@@ -701,35 +731,92 @@
             .form-grid {
                 grid-template-columns: 1fr;
                 gap: 1rem;
+                width: 100%;
             }
             
             .payment-shipping {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 1rem;
+                width: 100%;
+                overflow-x: hidden;
+                margin-bottom: 1.5rem;
             }
 
             .payment-methods, .shipping-methods {
-                padding: 1.2rem;
+                padding: 1rem;
+                border-radius: 12px;
+                width: 100%;
+                max-width: 100%;
+                overflow-x: hidden;
+                box-sizing: border-box;
+                margin-bottom: 0.5rem;
             }
 
             .section-subtitle {
                 font-size: 1.1rem;
                 margin-bottom: 1rem;
+                text-align: center;
+                color: #e91e63;
+                font-weight: bold;
+            }
+
+            .option-group {
+                margin-bottom: 8px;
+                width: 100%;
+                overflow-x: hidden;
             }
 
             .option-group label {
                 padding: 0.8rem;
-                font-size: 0.95rem;
+                font-size: 0.9rem;
+                border-radius: 8px;
+                margin-bottom: 6px;
+                border: 2px solid #f0f0f0;
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+                overflow-x: hidden;
+                word-wrap: break-word;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+
+            .option-group label:hover {
+                background: rgba(233, 30, 99, 0.1);
+                border-color: #e91e63;
+            }
+
+            .option-group input[type="radio"] {
+                width: 18px;
+                height: 18px;
+                margin: 0;
+                flex-shrink: 0;
+            }
+
+            .option-group label i {
+                font-size: 1rem;
+                min-width: 20px;
+                flex-shrink: 0;
             }
 
             .submit-order {
                 font-size: 1.1rem;
                 padding: 1.2rem;
                 border-radius: 12px;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+                margin-top: 1rem;
             }
 
             .footer {
                 padding: 2rem 4%;
+                width: 100%;
+                overflow-x: hidden;
             }
 
             .footer h3 {
@@ -748,9 +835,12 @@
 
             /* Mobile form improvements */
             input, select, textarea {
-                padding: 15px;
-                font-size: 16px; /* Prevents zoom on iOS */
-                border-radius: 10px;
+                padding: 12px;
+                font-size: 16px;
+                border-radius: 8px;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
             }
 
             /* Better mobile touch targets */
@@ -985,6 +1075,29 @@
                     <!-- Payment Methods -->
                     <div class="payment-methods">
                         <h3 class="section-subtitle">אמצעי תשלום</h3>
+                        <div class="option-group">
+                            <label>
+                                <input type="radio" name="payment" value="paypal" required>
+                                <i class="fab fa-paypal" style="color: #0070ba;"></i> PayPal
+                            </label>
+                        </div>
+                        <div class="option-group">
+                            <label>
+                                <input type="radio" name="payment" value="cash" required>
+                                <i class="fas fa-money-bill-wave" style="color: #4CAF50;"></i> תשלום במזומן בקבלה
+                            </label>
+                        </div>
+                        <div class="option-group">
+                            <label>
+                                <input type="radio" name="payment" value="transfer" required>
+                                <i class="fas fa-university" style="color: #2196F3;"></i> העברה בנקאית
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Shipping Methods -->
+                    <div class="shipping-methods">
+                        <h3 class="section-subtitle">אופן משלוח</h3>
                         <div class="option-group">
                             <label>
                                 <input type="radio" name="shipping" value="standard" data-price="20" required>
