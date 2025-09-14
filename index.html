@@ -710,16 +710,47 @@
 
             .payment-methods, .shipping-methods {
                 padding: 1.2rem;
+                border-radius: 12px;
             }
 
             .section-subtitle {
-                font-size: 1.1rem;
-                margin-bottom: 1rem;
+                font-size: 1.2rem;
+                margin-bottom: 1.2rem;
+                text-align: center;
+                color: #e91e63;
+                font-weight: bold;
+            }
+
+            .option-group {
+                margin-bottom: 12px;
             }
 
             .option-group label {
-                padding: 0.8rem;
-                font-size: 0.95rem;
+                padding: 1rem;
+                font-size: 1rem;
+                border-radius: 10px;
+                margin-bottom: 8px;
+                border: 2px solid #f0f0f0;
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .option-group label:hover {
+                background: rgba(233, 30, 99, 0.1);
+                border-color: #e91e63;
+            }
+
+            .option-group input[type="radio"] {
+                width: 20px;
+                height: 20px;
+                margin: 0;
+            }
+
+            .option-group label i {
+                font-size: 1.2rem;
+                min-width: 24px;
             }
 
             .submit-order {
